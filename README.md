@@ -1,12 +1,28 @@
-# React + Vite
+EX - Lista di Politici
+===
+## Consegna:
+### 📌 Milestone 1:
+- Effettua una chiamata API a "https://boolean-spec-frontend.vercel.app/freetestapi/politicians"
+- Salva la risposta in uno useState.
+- Mostra i politici in una lista di card, visualizzando almeno le seguenti proprietà: nome, immagine, posizione, biografia.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Obiettivo: Caricare e mostrare i politici in un’interfaccia chiara e leggibile.
 
-Currently, two official plugins are available:
+### 📌 Milestone 2:
+- Aggiungi un campo di ricerca (<'input type="text"'>) sopra la lista dei politici.
+- Permetti all’utente di filtrare i risultati in base a nome o biografia (se il testo cercato è incluso). Suggerimento: Creare un array derivato filtrato, che viene aggiornato solo quando cambia la lista di politici o il valore della ricerca.
+- ❌ Non usare useEffect per aggiornare l’array filtrato.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Obiettivo: Migliorare le prestazioni evitando ricalcoli inutili quando il valore della ricerca non cambia.
 
-## Expanding the ESLint configuration
+### 📌 Milestone 3: 
+- Attualmente, ogni volta che l’utente digita nella barra di ricerca, tutte le card vengono ri-renderizzate, anche quelle che non sono cambiate.
+- Usa React.memo() per evitare il ri-render delle card quando le loro props non cambiano.
+- Aggiungi un console.log() dentro il componente Card per verificare che venga renderizzato solo quando necessario.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Obiettivo: Se la lista filtrata cambia, solo le nuove card devono essere renderizzate, mentre le altre rimangono in memoria senza essere ridisegnate.
+
+### 🎯 Bonus:
+- Creare un array derivato che contiene tutte le posizioni politiche (position) disponibili, ma senza duplicati.
+- Aggiungere un <'select'> sopra la lista che permette di filtrare i politici anche in base alla loro posizione.
+- Modificare l’array filtrato per tenere conto sia della stringa di ricerca, sia della posizione selezionata.
