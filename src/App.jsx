@@ -1,4 +1,4 @@
-import Card from "./components/Card";
+import CardMemo from "./components/Card";
 import { useState, useEffect, useMemo } from "react";
 
 function App() {
@@ -21,7 +21,9 @@ function App() {
     return politicians.filter((politician) => {
       return politician.name.toLowerCase().includes(wordSearched.toLowerCase()) || politician.biography.toLowerCase().includes(wordSearched.toLowerCase())
     })
-  })
+  }, [politicians, wordSearched])
+
+
 
   useEffect(() => {
     fetchPoliticians();
@@ -40,7 +42,9 @@ function App() {
         />
 
         <div className="cards-container">
-          <Card politicianData={polliticiansFiltered} />
+          {polliticiansFiltered.map((politician) => (
+            <CardMemo politicianData={politician} key={politician.id} />
+          ))}
         </div>
       </section>
     </>
